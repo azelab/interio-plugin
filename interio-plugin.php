@@ -9,6 +9,33 @@ Description: Plugin needed for theme to work smoothly.
 Text Domain: interio
 */
 
+
+/*PLUGIN UPDATE*/
+define('RS_DIR', plugin_dir_url( __FILE__ ));
+
+add_action( 'init', 'github_plugin_updater_test_init' );
+function github_plugin_updater_test_init() {
+  include_once 'updater.php';
+  define( 'WP_GITHUB_FORCE_UPDATE', true );
+  if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+    $config = array(
+      'slug' => plugin_basename( __FILE__ ),
+      'proper_folder_name' => 'interio-plugin',
+      'api_url' => 'https://api.github.com/repos/azelab/interio-plugin',
+      'raw_url' => 'https://raw.github.com/azelab/interio-plugin/master',
+      'github_url' => 'https://github.com/azelab/interio-plugin',
+      'zip_url' => 'https://github.com/azelab/interio-plugin/archive/master.zip',
+      'sslverify' => true,
+      'requires' => '4.0',
+      'tested' => '4.7',
+      'readme' => 'README.md',
+      'access_token' => '',
+    );
+    new WP_GitHub_Updater( $config );
+  }
+}
+
+
 // Define Constants
 define('TT_FW_ROOT', dirname(__FILE__));
 define('TT_FW_VERSION', '1.4');
