@@ -333,3 +333,8 @@ function interio_share_scripts(){
     else{ print '<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>'; }
     print '<script type="text/javascript">stLight.options({publisher: "44ee8e50-33f1-4ef6-bd66-5c6bec0df4fa", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>';
 }
+
+/*WP Cost Estimation Plugin*/
+if (is_plugin_active( 'WP_Estimation_Form/estimation-form.php' ) ) {
+    add_action('init', 'lfb_setThemeMode');
+}
