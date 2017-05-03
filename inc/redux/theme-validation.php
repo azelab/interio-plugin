@@ -31,9 +31,9 @@ function start_verification(){
 	    	}else{
 	    		$count = 7-trial_period();
 	    	}
-	    	$popup_content = __('Dear customer, thank you for using Interio theme! Please enter purchase code to register your copy. <br/><b>'.$count.' day(s)</b>  trial period left. <br/><br/><p align="center"><a href="https://www.youtube.com/watch?v=nzBQf3nnJA8" target="_blank">how to obtain purchase code?</a></p>','interio');
+	    	$popup_content = __('Dear customer, thank you for using Interio theme! Please enter purchase code to register your copy. <br/><b>'.$count.' day(s)</b>  trial period left. <br/><p align="center"><a href="https://www.youtube.com/watch?v=nzBQf3nnJA8" target="_blank">how to obtain purchase code?</a></p><br/><p style="color:red;">Please note, all settings will be reset to default after trial period expiration!</p>','interio');
 	    }else{
-	    	$popup_content = __('Dear customer, the trial period has  expired. Please register to proceed using Interio theme','interio');
+	    	$popup_content = __('Dear customer, the trial period has  expired. Please register to proceed using Interio theme. <br/><p align="center"><a href="https://www.youtube.com/watch?v=nzBQf3nnJA8" target="_blank">how to obtain purchase code?</a></p><br/><p style="color:red;">Please note, all settings will be reset to default after trial period expiration!</p>','interio');
 	    }
 	    if (get_admin_page_title() == 'Theme Options' && !get_option( 'enable_full_version' )) {
 	    	echo 	'<div class="popup-license" data-remodal-id="popup_license" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">

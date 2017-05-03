@@ -4,7 +4,7 @@ Plugin Name: Interio Plugin
 Plugin URI: http://azelab.com
 Author: Azelab
 Author URI: http://azelab.com
-Version: 1.1
+Version: 1.2
 Description: Plugin needed for theme to work smoothly.
 Text Domain: interio
 */
@@ -25,8 +25,8 @@ if ('Interio' == $theme->name || 'Interio (Child Theme)' == $theme->name) {
         'slug' => plugin_basename( __FILE__ ),
         'proper_folder_name' => 'interio-plugin',
         'api_url' => 'https://api.github.com/repos/azelab/interio-plugin',
-        'raw_url' => 'https://raw.github.com/azelab/interio-plugin/master',
-        'github_url' => 'https://github.com/azelab/interio-plugin',
+        'raw_url' => 'https://raw.github.com/azelab/interio-plugin/master/',
+        'github_url' => 'https://github.com/azelab/interio-plugin/',
         'zip_url' => 'https://github.com/azelab/interio-plugin/archive/master.zip',
         'sslverify' => true,
         'requires' => '4.0',
@@ -34,7 +34,6 @@ if ('Interio' == $theme->name || 'Interio (Child Theme)' == $theme->name) {
         'readme' => 'README.md',
         'access_token' => '',
       );
-      new WP_GitHub_Updater( $config );
     }
   }
 
