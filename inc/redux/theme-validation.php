@@ -25,11 +25,11 @@ function start_verification(){
 	    if (get_option( 'enable_full_version' )) {
 			echo "<script> setTimeout(function(){jQuery('#validation_activate').click();},3000); </script>";
 		}
-	    if (trial_period() <= 7) {
-	    	if (trial_period() == 7) {
+	    if (trial_period() <= 60) {
+	    	if (trial_period() == 60) {
 	    		$count = __('last', 'interio');
 	    	}else{
-	    		$count = 7-trial_period();
+	    		$count = 60-trial_period();
 	    	}
 	    	$popup_content = __('Dear customer, thank you for using Interio theme! Please enter purchase code to register your copy. <br/><b>'.$count.' day(s)</b>  trial period left. <br/><p align="center"><a href="https://www.youtube.com/watch?v=nzBQf3nnJA8" target="_blank">how to obtain purchase code?</a></p><br/><p style="color:red;">Please note, all settings will be reset to default after trial period expiration!</p>','interio');
 	    }else{
@@ -64,7 +64,7 @@ function interio_theme_verification() {
 			$code_to_verify = interio_rs_get_option('purchase_code_verification'); 
 			$verify = $_POST['verify']; 
 			$path = $_SERVER['HTTP_HOST'];
-			$agent = $_SERVER['HTTP_USER_AGENT'];
+			$agent = base64_encode($_SERVER['HTTP_USER_AGENT']);
 			$email = wp_get_current_user()->data->user_email;
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, 'https://verify.azelab.com/index_in.php?p_code='.$code_to_verify.'&path='.$path.'&email='.$email.'&removed_status='.$verify.'&agent='.$agent);
@@ -102,5 +102,5 @@ function trial_period(){
 	$datetime1 = new DateTime(get_option( 'trial_period' ));
     $datetime2 = new DateTime(date("Y-m-d"));
     $interval = $datetime1->diff($datetime2);
-    return $interval->d;
+    return ($interval->m*30)+$interval->d;
 }

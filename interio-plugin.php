@@ -4,7 +4,7 @@ Plugin Name: Interio Plugin
 Plugin URI: http://azelab.com
 Author: Azelab
 Author URI: http://azelab.com
-Version: 1.2
+Version: 1.3
 Description: Plugin needed for theme to work smoothly.
 Text Domain: interio
 */
